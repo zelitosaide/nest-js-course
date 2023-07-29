@@ -27,7 +27,7 @@ export class NinjasController {
   @Post()
   createNinja(@Body() createNinjaDto: CreateNinjaDto) {
     return {
-      createNinjaDto
+      name: createNinjaDto.name
     };
   }
 
