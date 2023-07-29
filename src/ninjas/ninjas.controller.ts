@@ -34,12 +34,12 @@ export class NinjasController {
   }
 
   @Put(":id")
-  updateNinja(@Param() id: string, @Body() updateNinjaDto: UpdateNinjaDto) {
+  updateNinja(@Param("id") id: string, @Body() updateNinjaDto: UpdateNinjaDto) {
     return this.ninjasService.updateNinja(+id, updateNinjaDto);
   }
 
   @Delete(":id")
-  removeNinja(@Param() id: number) {
+  removeNinja(@Param("id") id: number) {
     return {
       id,
     };

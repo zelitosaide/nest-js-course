@@ -31,9 +31,9 @@ export class NinjasService {
   }
 
   updateNinja(id: number, updateNinjaDto: UpdateNinjaDto) {
-    this.ninjas.map((ninja) => {
+    this.ninjas = this.ninjas.map((ninja) => {
       if (ninja.id === id) {
-        return {...ninja, ...updateNinjaDto}
+        return { ...ninja, ...updateNinjaDto }
       }
       return ninja;
     });
