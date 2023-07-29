@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Post, Put } from "@nestjs/common";
 
 @Controller("ninjas")
 export class NinjasController {
@@ -10,5 +10,15 @@ export class NinjasController {
   @Get(":id")
   getNinja() {
     return {}; 
+  }
+
+  @Post()
+  createNinja() {
+    return {};
+  }
+
+  @Put(":id")
+  updateNinja() {
+    return {};
   }
 }
