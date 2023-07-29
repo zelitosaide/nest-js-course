@@ -4,6 +4,11 @@ import { UpdateUserDto } from "./dto/update-user.dto";
 
 @Injectable()
 export class UsersService {
+  private readonly users: CreateUserDto[] = [
+    { id: 0, name: "zelito", username: "zelitosaide", password: "zelito" },
+    { id: 1, name: "saide", username: "sabdala", password: "saide" },
+  ];
+
   create(createUserDto: CreateUserDto) {
     return "This action adds a new user";
   }
