@@ -22,6 +22,7 @@ export class CatsController {
 
   @Put(":id")
   async update(@Param("id") id: string, @Body() updateCatDto: UpdateCatDto) {
-
+    console.log(updateCatDto);
+    return `This action updates a #${id} cat`;
   }
 }
