@@ -30,11 +30,7 @@ export class NinjasController {
 
   @Post()
   createNinja(@Body() createNinjaDto: CreateNinjaDto) {
-    console.log(createNinjaDto);
-
-    return {
-      name: createNinjaDto.name,
-    };
+    return this.ninjasService.createNinja(createNinjaDto);
   }
 
   @Put(":id")
