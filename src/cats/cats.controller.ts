@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
 import { CreateCatDto } from "./dto/create-cat.dto";
 
 @Controller("cats")
@@ -10,8 +10,8 @@ export class CatsController {
   }
 
   @Get()
-  async findAll() {
-    return "This action returns all cats";
+  async findAll(@Query("limit") limit: string) {
+    return `This action returns all cats (limit: ${limit} items)`;
   }
 
   @Get(":id")
