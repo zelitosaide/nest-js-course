@@ -18,8 +18,6 @@ export class NinjasController {
 
   @Get()
   getNinjas(@Query("weapon") weapon: "stars" | "nunchucks") {
-    // const service = new NinjasService();
-    // return service.getNinjas(weapon);
     return this.ninjasService.getNinjas(weapon);
   }
 
