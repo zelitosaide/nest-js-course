@@ -25,9 +25,7 @@ export class NinjasController {
 
   @Get(":id")
   getNinja(@Param("id") id: string) {
-    return {
-      id,
-    };
+    return this.ninjasService.getNinja(id);
   }
 
   @Post()
