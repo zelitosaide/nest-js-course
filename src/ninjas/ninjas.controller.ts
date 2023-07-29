@@ -1,4 +1,14 @@
-import { Controller } from "@nestjs/common";
+import { Controller, Get } from "@nestjs/common";
 
 @Controller("ninjas")
-export class NinjasController {}
+export class NinjasController {
+  @Get()
+  getNinjas() {
+    return [];
+  }
+
+  @Get(":id")
+  getNinja() {
+    return {}; 
+  }
+}
