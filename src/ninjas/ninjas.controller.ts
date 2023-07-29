@@ -10,8 +10,8 @@ export class NinjasController {
   @Get(":id")
   getNinja(@Param("id") id: string) {
     return {
-      id
-    }; 
+      id,
+    };
   }
 
   @Post()
@@ -20,12 +20,16 @@ export class NinjasController {
   }
 
   @Put(":id")
-  updateNinja() {
-    return {};
+  updateNinja(@Param() id: string) {
+    return {
+      id,
+    };
   }
 
   @Delete(":id")
-  removeNinja() {
-    return {};
+  removeNinja(@Param() id: string) {
+    return {
+      id,
+    };
   }
 }
