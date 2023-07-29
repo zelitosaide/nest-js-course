@@ -36,6 +36,8 @@ export class NinjasService {
         return {...ninja, ...updateNinjaDto}
       }
       return ninja;
-    })
+    });
+
+    return this.getNinja(id);
   }
 }
