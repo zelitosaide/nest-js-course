@@ -40,4 +40,12 @@ export class NinjasService {
 
     return this.getNinja(id);
   }
+
+  removeNinja(id: number) {
+    const removedNinja = this.getNinja(id);
+
+    this.ninjas = this.ninjas.filter((ninja) => ninja.id !== id);
+
+    return removedNinja;
+  }
 }

@@ -39,9 +39,7 @@ export class NinjasController {
   }
 
   @Delete(":id")
-  removeNinja(@Param("id") id: number) {
-    return {
-      id,
-    };
+  removeNinja(@Param("id") id: string) {
+    return this.ninjasService.removeNinja(+id);
   }
 }
