@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, Put, Query } from "@nestjs/common";
 import { CreateCatDto } from "./dto/create-cat.dto";
+import { UpdateCatDto } from "./dto/update-cat.dto";
 
 @Controller("cats")
 export class CatsController {
@@ -15,7 +16,12 @@ export class CatsController {
   }
 
   @Get(":id")
-  async findOne(@Param("id") id: string): Promise<string> {
+  async findOne(@Param("id") id: string) {
     return `This action returns a #${id} cat`;
+  }
+
+  @Put(":id")
+  async update(@Param("id") id: string, @Body() updateCatDto: UpdateCatDto) {
+
   }
 }
