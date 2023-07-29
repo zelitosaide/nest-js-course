@@ -12,8 +12,13 @@ export class CatsController {
     return "This action returns all cats";
   }
 
+  // @Get(":id")
+  // findOne(@Param() params: any): string {
+  //   return `This action returns a #${params.id} cat`;
+  // }
+
   @Get(":id")
-  findOne(@Param() params: any): string {
-    return `This action returns a #${params.id} cat`;
+  findOne(@Param("id") id: string): string {
+    return `This action returns a #${id} cat`;
   }
 }
