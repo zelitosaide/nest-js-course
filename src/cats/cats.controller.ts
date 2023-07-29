@@ -5,12 +5,13 @@ import { CreateCatDto } from "./dto/create-cat.dto";
 export class CatsController {
   @Post()
   async create(@Body() createCatDto: CreateCatDto) {
+    console.log(createCatDto);
     return "This action adds a new cat";
   }
 
   @Get()
-  async findAll(): Promise<any[]> {
-    return [];
+  async findAll() {
+    return "This action returns all cats";
   }
 
   @Get(":id")
