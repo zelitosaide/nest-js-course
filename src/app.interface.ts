@@ -1,3 +1,3 @@
 export interface FormattedDate {
-  date: string
+  date: string;
 }

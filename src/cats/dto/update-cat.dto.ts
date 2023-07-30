@@ -1,5 +1,3 @@
 import { CreateCatDto } from "./create-cat.dto";
 
-export class UpdateCatDto extends CreateCatDto {
-  
-}
+export class UpdateCatDto extends CreateCatDto {}

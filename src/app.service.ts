@@ -8,7 +8,7 @@ export class AppService {
     const date = new Date();
 
     return {
-      "date": `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
-    }
+      date: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+    };
   }
 }
