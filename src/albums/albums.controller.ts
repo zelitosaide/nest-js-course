@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Param, ParseIntPipe } from "@nestjs/common";
 import { AlbumsService } from "./albums.service";
 import { Album } from "./interfaces/album.interface";
 
@@ -9,5 +9,10 @@ export class AlbumsController {
   @Get()
   async findAll(): Promise<Album[]> {
     return this.albumsService.findAll();
+  }
+
+  @Get(":id")
+  async findOne(@Param("id", ParseIntPipe) id: number): Promise<Album> {
+    return this.albumsService.findOne(id);
   }
 }
