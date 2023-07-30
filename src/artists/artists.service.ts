@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { Artist } from "./interfaces/artist.interface";
 import { Album } from "src/albums/interfaces/album.interface";
+import { Playlist } from "src/playlists/interfaces/playlist.interface";
 
 @Injectable()
 export class ArtistsService {
@@ -27,5 +28,14 @@ export class ArtistsService {
     ];
 
     return albums.filter((album) => album.artist_id === id);
+  }
+
+  findPlaylists(id: number): Playlist[] {
+    const playlists = [
+      { id: 301, name: "Pop Hits", artist_id: 1 },
+      { id: 302, name: "Rock Classics", artist_id: 2 },
+    ];
+
+    return playlists.filter((playlist) => playlist.artist_id === id);
   }
 }
