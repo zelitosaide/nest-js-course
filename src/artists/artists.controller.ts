@@ -1,6 +1,7 @@
 import { Controller, Get, Param, ParseIntPipe } from "@nestjs/common";
 import { Artist } from "./interfaces/artist.interface";
 import { ArtistsService } from "./artists.service";
+import { Album } from "src/albums/interfaces/album.interface";
 
 @Controller("artists")
 export class ArtistsController {
@@ -14,5 +15,10 @@ export class ArtistsController {
   @Get(":id")
   async findOne(@Param("id", ParseIntPipe) id: number): Promise<Artist> {
     return this.artistsService.findOne(id);
+  }
+
+  @Get(":id/albums")
+  async findAlbums(@Param("id", ParseIntPipe) id: number): Promise<Album[]> {
+    return this.artistsService.findAlbums(id);
   }
 }
