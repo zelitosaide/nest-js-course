@@ -4,6 +4,6 @@ import { Controller, Get } from "@nestjs/common";
 export class AlbumsController {
   @Get()
   async findAll() {
-
+    return "Albums";
   }
 }

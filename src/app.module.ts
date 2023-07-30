@@ -7,6 +7,7 @@ import { CatsService } from "./cats/cats.service";
 import { ArtistsController } from "./artists/artists.controller";
 import { ArtistsService } from "./artists/artists.service";
 import { AlbumsController } from "./albums/albums.controller";
+import { AlbumsService } from './albums/albums.service';
 
 @Module({
   imports: [NinjasModule],
@@ -16,6 +17,6 @@ import { AlbumsController } from "./albums/albums.controller";
     ArtistsController,
     AlbumsController,
   ],
-  providers: [AppService, CatsService, ArtistsService],
+  providers: [AppService, CatsService, ArtistsService, AlbumsService],
 })
 export class AppModule {}
