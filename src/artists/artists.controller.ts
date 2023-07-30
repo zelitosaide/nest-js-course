@@ -13,6 +13,6 @@ export class ArtistsController {
 
   @Get(":id")
   async findOne(@Param("id", ParseIntPipe) id: number): Promise<Artist> {
-    return this.findOne(id);
+    return this.artistsService.findOne(id);
   }
 }
