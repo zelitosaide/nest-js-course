@@ -1,4 +1,11 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { Artist } from './interfaces/artist.interface';
 
 @Controller('artists')
-export class ArtistsController {}
+export class ArtistsController {
+
+  @Get()
+  async findAll(): Promise<Artist[]> {
+    return 
+  }
+}

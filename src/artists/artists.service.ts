@@ -12,4 +12,8 @@ export class ArtistsService {
   findAll(): Artist[] {
     return this.artists;
   }
+
+  findOne(id: number): Artist {
+    return this.artists.find((artist) => artist.id === id);
+  }
 }
