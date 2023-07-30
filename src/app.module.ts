@@ -7,7 +7,7 @@ import { CatsService } from "./cats/cats.service";
 import { ArtistsController } from "./artists/artists.controller";
 import { ArtistsService } from "./artists/artists.service";
 import { AlbumsController } from "./albums/albums.controller";
-import { AlbumsService } from './albums/albums.service';
+import { AlbumsService } from "./albums/albums.service";
 
 @Module({
   imports: [NinjasModule],
