@@ -19,11 +19,6 @@ import { ArtistsModule } from "./artists/artists.module";
     SongsController,
     PlaylistSongsController,
   ],
-  providers: [
-    AppService,
-    CatsService,
-    SongsService,
-    PlaylistSongsService,
-  ],
+  providers: [AppService, CatsService, SongsService, PlaylistSongsService],
 })
 export class AppModule {}
