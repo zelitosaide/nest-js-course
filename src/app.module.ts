@@ -14,9 +14,10 @@ import { PlaylistsController } from "./playlists/playlists.controller";
 import { PlaylistsService } from "./playlists/playlists.service";
 import { PlaylistSongsController } from "./playlist_songs/playlist_songs.controller";
 import { PlaylistSongsService } from "./playlist_songs/playlist_songs.service";
+import { AlbumsModule } from './albums/albums.module';
 
 @Module({
-  imports: [NinjasModule],
+  imports: [NinjasModule, AlbumsModule],
   controllers: [
     AppController,
     CatsController,
