@@ -10,22 +10,23 @@ import { CatsService } from "./cats/cats.service";
 // import { AlbumsService } from "./albums/albums.service";
 import { SongsController } from "./songs/songs.controller";
 import { SongsService } from "./songs/songs.service";
-import { PlaylistsController } from "./playlists/playlists.controller";
-import { PlaylistsService } from "./playlists/playlists.service";
+// import { PlaylistsController } from "./playlists/playlists.controller";
+// import { PlaylistsService } from "./playlists/playlists.service";
 import { PlaylistSongsController } from "./playlist_songs/playlist_songs.controller";
 import { PlaylistSongsService } from "./playlist_songs/playlist_songs.service";
 import { AlbumsModule } from "./albums/albums.module";
 import { ArtistsModule } from './artists/artists.module';
+import { PlaylistsModule } from './playlists/playlists.module';
 
 @Module({
-  imports: [NinjasModule, AlbumsModule, ArtistsModule],
+  imports: [NinjasModule, AlbumsModule, ArtistsModule, PlaylistsModule],
   controllers: [
     AppController,
     CatsController,
     // ArtistsController,
     // AlbumsController,
     SongsController,
-    PlaylistsController,
+    // PlaylistsController,
     PlaylistSongsController,
   ],
   providers: [
@@ -34,7 +35,7 @@ import { ArtistsModule } from './artists/artists.module';
     // ArtistsService,
     // AlbumsService,
     SongsService,
-    PlaylistsService,
+    // PlaylistsService,
     PlaylistSongsService,
   ],
 })
