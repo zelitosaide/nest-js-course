@@ -2,9 +2,12 @@ import { Injectable } from "@nestjs/common";
 import { Artist } from "./interfaces/artist.interface";
 import { Album } from "src/albums/interfaces/album.interface";
 import { Playlist } from "src/playlists/interfaces/playlist.interface";
+import { AlbumsService } from "src/albums/albums.service";
 
 @Injectable()
 export class ArtistsService {
+  constructor(private readonly albumsService: AlbumsService) {}
+
   private readonly artists: Artist[] = [
     { id: 1, name: "Artist A", genre: "Pop", country: "United States" },
     { id: 2, name: "Artist B", genre: "Rock", country: "United Kingdom" },
@@ -20,13 +23,7 @@ export class ArtistsService {
   }
 
   findAlbums(id: number): Album[] {
-    const albums = [
-      { id: 101, title: "Album X", release_year: 2010, artist_id: 1 },
-      { id: 102, title: "Album Y", release_year: 2015, artist_id: 1 },
-      { id: 103, title: "Album Z", release_year: 2018, artist_id: 2 },
-      { id: 104, title: "Album ABC", release_year: 2020, artist_id: 3 },
-    ];
-
+    const albums = this.albumsService.findAll();
     return albums.filter((album) => album.artist_id === id);
   }
 
