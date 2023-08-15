@@ -1,4 +1,8 @@
-import { Module } from '@nestjs/common';
+import { Module } from "@nestjs/common";
+import { PlaylistsService } from "./playlists.service";
 
-@Module({})
+@Module({
+  exports: [PlaylistsService],
+  providers: [PlaylistsService],
+})
 export class PlaylistsModule {}

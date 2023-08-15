@@ -3,10 +3,14 @@ import { Artist } from "./interfaces/artist.interface";
 import { Album } from "src/albums/interfaces/album.interface";
 import { Playlist } from "src/playlists/interfaces/playlist.interface";
 import { AlbumsService } from "src/albums/albums.service";
+import { PlaylistsService } from "src/playlists/playlists.service";
 
 @Injectable()
 export class ArtistsService {
-  constructor(private readonly albumsService: AlbumsService) {}
+  constructor(
+    private readonly albumsService: AlbumsService,
+    private readonly playlistsService: PlaylistsService,
+  ) {}
 
   private readonly artists: Artist[] = [
     { id: 1, name: "Artist A", genre: "Pop", country: "United States" },

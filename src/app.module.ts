@@ -15,8 +15,8 @@ import { SongsService } from "./songs/songs.service";
 import { PlaylistSongsController } from "./playlist_songs/playlist_songs.controller";
 import { PlaylistSongsService } from "./playlist_songs/playlist_songs.service";
 import { AlbumsModule } from "./albums/albums.module";
-import { ArtistsModule } from './artists/artists.module';
-import { PlaylistsModule } from './playlists/playlists.module';
+import { ArtistsModule } from "./artists/artists.module";
+import { PlaylistsModule } from "./playlists/playlists.module";
 
 @Module({
   imports: [NinjasModule, AlbumsModule, ArtistsModule, PlaylistsModule],
