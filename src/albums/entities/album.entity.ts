@@ -10,9 +10,6 @@ export class Album {
   title: string;
 
   @Column()
-  titleRR: string;
-
-  @Column()
   releaseYear: number;
 
   @ManyToOne(() => Artist, (artist) => artist.albums)
