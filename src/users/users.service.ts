@@ -12,17 +12,17 @@ export class UsersService {
     @InjectRepository(User)
     private usersRepository: Repository<User>
   ) {}
-  
+
   create(createUserDto: CreateUserDto) {
     return "This action adds a new user";
   }
 
-  findAll() {
-    return `This action returns all users`;
+  findAll(): Promise<User[]> {
+    return this.usersRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(id: number): Promise<User | null> {
+    return this.usersRepository.findOneBy({ id });
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
