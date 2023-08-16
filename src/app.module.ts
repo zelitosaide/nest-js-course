@@ -13,6 +13,7 @@ import { UsersModule } from "./users/users.module";
 import { User } from "./users/entities/user.entity";
 import { Artist } from "./artists/entities/artist.entity";
 import { Album } from "./albums/entities/album.entity";
+import { Playlist } from "./playlists/entities/playlist.entity";
 
 @Module({
   imports: [
@@ -25,7 +26,7 @@ import { Album } from "./albums/entities/album.entity";
       username: "root",
       password: "JoanaZelito@1",
       database: "musics",
-      entities: [User, Artist, Album],
+      entities: [User, Artist, Album, Playlist],
       synchronize: true,
       autoLoadEntities: false,
     }),
