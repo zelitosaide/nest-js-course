@@ -10,7 +10,7 @@ import { Repository } from "typeorm";
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private usersRepository: Repository<User>
+    private usersRepository: Repository<User>,
   ) {}
 
   create(createUserDto: CreateUserDto) {
