@@ -8,8 +8,23 @@ import { PlaylistSongsService } from "./playlist_songs/playlist_songs.service";
 import { AlbumsModule } from "./albums/albums.module";
 import { ArtistsModule } from "./artists/artists.module";
 
+import { TypeOrmModule } from "@nestjs/typeorm";
+
 @Module({
-  imports: [AlbumsModule, ArtistsModule],
+  imports: [
+    AlbumsModule,
+    ArtistsModule,
+    TypeOrmModule.forRoot({
+      type: "mysql",
+      host: "127.0.0.1",
+      port: 3306,
+      username: "root",
+      password: "JoanaZelito@1",
+      database: "users",
+      entities: [],
+      synchronize: true,
+    }),
+  ],
   controllers: [AppController, SongsController, PlaylistSongsController],
   providers: [AppService, SongsService, PlaylistSongsService],
 })
