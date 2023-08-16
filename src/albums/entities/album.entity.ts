@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn } from "typeorm";
+import { Artist } from "src/artists/entities/artist.entity";
 
 @Entity()
-export class User {
+export class Album {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -11,6 +12,7 @@ export class User {
   @Column()
   release_year: number;
 
-  @Column()
-  artist_id: number;
+  @OneToOne(() => Artist)
+  @JoinColumn()
+  artist: Artist
 }
