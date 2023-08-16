@@ -10,10 +10,6 @@ import { ArtistsModule } from "./artists/artists.module";
 
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { UsersModule } from "./users/users.module";
-// import { User } from "./users/entities/user.entity";
-// import { Artist } from "./artists/entities/artist.entity";
-// import { Album } from "./albums/entities/album.entity";
-// import { Playlist } from "./playlists/entities/playlist.entity";
 
 @Module({
   imports: [
@@ -26,7 +22,6 @@ import { UsersModule } from "./users/users.module";
       username: "root",
       password: "JoanaZelito@1",
       database: "musics",
-      // entities: [User, Artist, Album, Playlist],
       synchronize: true,
       autoLoadEntities: true,
     }),
