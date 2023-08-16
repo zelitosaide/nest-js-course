@@ -4,8 +4,11 @@ import { ArtistsController } from "./artists.controller";
 import { ArtistsService } from "./artists.service";
 import { PlaylistsModule } from "src/playlists/playlists.module";
 
+import { TypeOrmModule } from "@nestjs/typeorm";
+import { Artist } from "./entities/artist.entity";
+
 @Module({
-  imports: [AlbumsModule, PlaylistsModule],
+  imports: [AlbumsModule, PlaylistsModule, TypeOrmModule.forFeature([Artist])],
   controllers: [ArtistsController],
   providers: [ArtistsService],
 })

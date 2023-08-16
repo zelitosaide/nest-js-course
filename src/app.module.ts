@@ -28,7 +28,7 @@ import { Playlist } from "./playlists/entities/playlist.entity";
       database: "musics",
       entities: [User, Artist, Album, Playlist],
       synchronize: true,
-      autoLoadEntities: false,
+      // autoLoadEntities: false,
     }),
     UsersModule,
   ],
