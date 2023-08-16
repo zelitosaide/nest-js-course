@@ -22,7 +22,7 @@ import { User } from "./users/entities/user.entity";
       port: 3306,
       username: "root",
       password: "JoanaZelito@1",
-      database: "users",
+      database: "musics",
       entities: [User],
       synchronize: true,
       autoLoadEntities: false,
