@@ -11,10 +11,10 @@ export class Artist {
   name: string;
 
   @Column()
-  genre: number;
+  genre: string;
 
   @Column()
-  country: number;
+  country: string;
 
   @OneToMany(() => Album, (album) => album.artist)
   albums: Album[];
