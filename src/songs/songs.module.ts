@@ -6,8 +6,8 @@ import { SongsController } from "./songs.controller";
 
 @Module({
   imports: [TypeOrmModule.forFeature([Song])],
-  exports: [SongsService],
   controllers: [SongsController],
   providers: [SongsService],
+  exports: [TypeOrmModule],
 })
 export class SongsModule {}
