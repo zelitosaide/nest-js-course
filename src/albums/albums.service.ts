@@ -19,7 +19,9 @@ export class AlbumsService {
     return this.albumsRepository.save(album);
   }
 
-
+  findAll(): Promise<Album[]> {
+    return this.albumsRepository.find();
+  }
 
   // private readonly albums: Album[] = [
   //   { id: 101, title: "Album X", release_year: 2010, artist_id: 1 },

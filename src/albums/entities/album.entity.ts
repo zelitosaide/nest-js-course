@@ -12,6 +12,9 @@ export class Album {
   @Column()
   releaseYear: number;
 
+  @Column()
+  artistId: number;
+
   @ManyToOne(() => Artist, (artist) => artist.albums)
   artist: Artist;
 }

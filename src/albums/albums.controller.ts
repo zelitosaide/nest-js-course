@@ -13,6 +13,11 @@ export class AlbumsController {
     return this.albumsService.create(createAlbumDto);
   }
 
+  @Get()
+  findAll() {
+    return this.albumsService.findAll();
+  }
+
   // @Get()
   // async findAll(): Promise<Album[]> {
   //   return this.albumsService.findAll();
