@@ -29,10 +29,10 @@ export class ArtistsService {
   findAll(): Promise<Artist[]> {
     return this.artistsRepository.find();
   }
-
-  // findOne(id: number): Artist {
-  //   return this.artists.find((artist) => artist.id === id);
-  // }
+  
+  findOne(id: number): Promise<Artist | null> {
+    return this.artistsRepository.findOneBy({ id });
+  }
 
   // findAlbums(id: number): Album[] {
   //   const albums = this.albumsService.findAll();
