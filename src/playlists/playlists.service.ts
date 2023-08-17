@@ -20,6 +20,10 @@ export class PlaylistsService {
     return this.playlistsRepository.find();
   }
 
+  findOne(id: number): Promise<Playlist | null> {
+    return this.playlistsRepository.findOneBy({ id });
+  }
+
   findByArtistId(artistId: number): Promise<Playlist[]> {
     return this.playlistsRepository.findBy({ artistId });
   }

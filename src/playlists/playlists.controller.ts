@@ -1,4 +1,4 @@
-import { Controller, Get } from "@nestjs/common";
+import { Controller, Get, Param } from "@nestjs/common";
 import { Playlist } from "./interfaces/playlist.interface";
 import { PlaylistsService } from "./playlists.service";
 
@@ -9,5 +9,10 @@ export class PlaylistsController {
   @Get()
   findAll() {
     return this.playlistsService.findAll();
+  }
+
+  @Get(":id")
+  findOne(@Param("id") id: string) {
+    return this.playlistsService.findOne(+id);
   }
 }
