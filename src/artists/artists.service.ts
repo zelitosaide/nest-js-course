@@ -28,7 +28,7 @@ export class ArtistsService {
   findAll(): Promise<Artist[]> {
     return this.artistsRepository.find();
   }
-  
+
   findOne(id: number): Promise<Artist | null> {
     return this.artistsRepository.findOneBy({ id });
   }
