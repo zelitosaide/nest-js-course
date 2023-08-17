@@ -26,9 +26,9 @@ export class ArtistsService {
     return this.artistsRepository.save(artist);
   }
 
-  // findAll(): Artist[] {
-  //   return this.artists;
-  // }
+  findAll(): Promise<Artist[]> {
+    return this.artistsRepository.find();
+  }
 
   // findOne(id: number): Artist {
   //   return this.artists.find((artist) => artist.id === id);

@@ -14,10 +14,10 @@ export class ArtistsController {
     return this.artistsService.create(createArtistDto);
   }
 
-  // @Get()
-  // async findAll(): Promise<Artist[]> {
-  //   return this.artistsService.findAll();
-  // }
+  @Get()
+  async findAll(): Promise<Artist[]> {
+    return this.artistsService.findAll();
+  }
 
   // @Get(":id")
   // async findOne(@Param("id", ParseIntPipe) id: number): Promise<Artist> {
