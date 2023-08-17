@@ -1,11 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  Param,
-  ParseIntPipe,
-  Post,
-} from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { ArtistsService } from "./artists.service";
 import { Artist } from "./entities/artist.entity";
 import { CreateArtistDto } from "./dto/create-artist.dto";
