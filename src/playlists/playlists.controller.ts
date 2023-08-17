@@ -7,7 +7,7 @@ export class PlaylistsController {
   constructor(private readonly playlistsService: PlaylistsService) {}
 
   @Get()
-  async findAll(): Promise<Playlist[]> {
+  findAll() {
     return this.playlistsService.findAll();
   }
 }

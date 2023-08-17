@@ -37,8 +37,7 @@ export class ArtistsService {
     return this.albumsService.findByArtistId(id);
   }
 
-  // findPlaylists(id: number): Playlist[] {
-  //   const playlists = this.playlistsService.findAll();
-  //   return playlists.filter((playlist) => playlist.artist_id === id);
+  // findPlaylists(id: number): Promise<Playlist[]> {
+  //   return this.playlistsService.findByArtistId(id);
   // }
 }
