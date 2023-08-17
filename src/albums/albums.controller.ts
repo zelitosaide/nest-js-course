@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { AlbumsService } from "./albums.service";
 import { Album } from "./entities/album.entity";
 import { CreateAlbumDto } from "./dto/create-album.dto";

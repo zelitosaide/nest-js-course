@@ -27,6 +27,10 @@ export class AlbumsService {
     return this.albumsRepository.findOneBy({ id });
   }
 
+  findByArtistId(artistId: number): Promise<Album[]> {
+    return this.albumsRepository.findBy({ artistId });
+  }
+
   // private readonly albums: Album[] = [
   //   { id: 101, title: "Album X", release_year: 2010, artist_id: 1 },
   //   { id: 102, title: "Album Y", release_year: 2015, artist_id: 1 },

@@ -1,6 +1,4 @@
 import { Injectable } from "@nestjs/common";
-// import { Artist } from "./interfaces/artist.interface";
-import { Album } from "src/albums/interfaces/album.interface";
 import { Playlist } from "src/playlists/interfaces/playlist.interface";
 import { AlbumsService } from "src/albums/albums.service";
 import { PlaylistsService } from "src/playlists/playlists.service";
@@ -8,6 +6,7 @@ import { CreateArtistDto } from "./dto/create-artist.dto";
 import { Artist } from "./entities/artist.entity";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
+import { Album } from "src/albums/entities/album.entity";
 
 @Injectable()
 export class ArtistsService {
@@ -34,10 +33,9 @@ export class ArtistsService {
     return this.artistsRepository.findOneBy({ id });
   }
 
-  // findAlbums(id: number): Album[] {
-  //   const albums = this.albumsService.findAll();
-  //   return albums.filter((album) => album.artist_id === id);
-  // }
+  findAlbums(id: number): Promise<Album[]> {
+    return this.albumsService.findByArtistId(id);
+  }
 
   // findPlaylists(id: number): Playlist[] {
   //   const playlists = this.playlistsService.findAll();

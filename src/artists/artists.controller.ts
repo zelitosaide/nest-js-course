@@ -1,6 +1,5 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post } from "@nestjs/common";
 import { ArtistsService } from "./artists.service";
-import { Album } from "src/albums/interfaces/album.interface";
 import { Playlist } from "src/playlists/interfaces/playlist.interface";
 import { Artist } from "./entities/artist.entity";
 import { CreateArtistDto } from "./dto/create-artist.dto";
