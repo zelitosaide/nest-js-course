@@ -14,7 +14,7 @@ export class ArtistsController {
   }
 
   @Get()
-  async findAll(): Promise<Artist[]> {
+  findAll() {
     return this.artistsService.findAll();
   }
   
@@ -23,10 +23,10 @@ export class ArtistsController {
     return this.artistsService.findOne(+id);
   }
 
-  // @Get(":id/albums")
-  // async findAlbums(@Param("id", ParseIntPipe) id: number): Promise<Album[]> {
-  //   return this.artistsService.findAlbums(id);
-  // }
+  @Get(":id/albums")
+  findAlbums(@Param("id") id: string) {
+    return this.artistsService.findAlbums(+id);
+  }
 
   // @Get(":id/playlists")
   // async findPlaylists(
