@@ -6,6 +6,7 @@ import { Artist } from "./entities/artist.entity";
 import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Album } from "src/albums/entities/album.entity";
+import { Playlist } from "src/playlists/entities/playlist.entity";
 
 @Injectable()
 export class ArtistsService {
@@ -36,7 +37,7 @@ export class ArtistsService {
     return this.albumsService.findByArtistId(id);
   }
 
-  // findPlaylists(id: number): Promise<Playlist[]> {
-  //   return this.playlistsService.findByArtistId(id);
-  // }
+  findPlaylists(id: number): Promise<Playlist[]> {
+    return this.playlistsService.findByArtistId(id);
+  }
 }

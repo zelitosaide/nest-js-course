@@ -10,7 +10,7 @@ export class PlaylistsService {
     @InjectRepository(Playlist)
     private playlistsRepository: Repository<Playlist>,
   ) {}
-  
+
   create(createPlaylistDto: CreatePlaylistDto): Promise<Playlist> {
     const playlist = new Playlist();
     playlist.name = createPlaylistDto.name;

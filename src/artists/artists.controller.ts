@@ -34,10 +34,8 @@ export class ArtistsController {
     return this.artistsService.findAlbums(+id);
   }
 
-  // @Get(":id/playlists")
-  // async findPlaylists(
-  //   @Param("id", ParseIntPipe) id: number,
-  // ): Promise<Playlist[]> {
-  //   return this.artistsService.findPlaylists(id);
-  // }
+  @Get(":id/playlists")
+  async findPlaylists(@Param("id") id: string) {
+    return this.artistsService.findPlaylists(+id);
+  }
 }
