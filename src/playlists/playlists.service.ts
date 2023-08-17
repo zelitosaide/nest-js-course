@@ -10,12 +10,7 @@ export class PlaylistsService {
     @InjectRepository(Playlist)
     private playlistsRepository: Repository<Playlist>,
   ) {}
-
-  // private readonly playlists: Playlist[] = [
-  //   { id: 301, name: "Pop Hits", artist_id: 1 },
-  //   { id: 302, name: "Rock Classics", artist_id: 2 },
-  // ];
-
+  
   create(createPlaylistDto: CreatePlaylistDto): Promise<Playlist> {
     const playlist = new Playlist();
     playlist.name = createPlaylistDto.name;

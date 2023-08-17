@@ -7,7 +7,6 @@ import {
   Post,
 } from "@nestjs/common";
 import { ArtistsService } from "./artists.service";
-import { Playlist } from "src/playlists/interfaces/playlist.interface";
 import { Artist } from "./entities/artist.entity";
 import { CreateArtistDto } from "./dto/create-artist.dto";
 

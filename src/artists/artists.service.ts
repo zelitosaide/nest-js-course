@@ -1,5 +1,4 @@
 import { Injectable } from "@nestjs/common";
-import { Playlist } from "src/playlists/interfaces/playlist.interface";
 import { AlbumsService } from "src/albums/albums.service";
 import { PlaylistsService } from "src/playlists/playlists.service";
 import { CreateArtistDto } from "./dto/create-artist.dto";
