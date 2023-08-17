@@ -18,13 +18,8 @@ export class AlbumsController {
     return this.albumsService.findAll();
   }
 
-  // @Get()
-  // async findAll(): Promise<Album[]> {
-  //   return this.albumsService.findAll();
-  // }
-
-  // @Get(":id")
-  // async findOne(@Param("id", ParseIntPipe) id: number): Promise<Album> {
-  //   return this.albumsService.findOne(id);
-  // }
+  @Get(":id")
+  findOne(@Param("id") id: string) {
+    return this.albumsService.findOne(+id);
+  }
 }
