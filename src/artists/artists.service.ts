@@ -18,18 +18,11 @@ export class ArtistsService {
     private artistsRepository: Repository<Artist>,
   ) {}
 
-  // private readonly artists: Artist[] = [
-  //   { id: 1, name: "Artist A", genre: "Pop", country: "United States" },
-  //   { id: 2, name: "Artist B", genre: "Rock", country: "United Kingdom" },
-  //   { id: 3, name: "Artist C", genre: "Hip Hop", country: "Canada" },
-  // ];
-
   create(createArtistDto: CreateArtistDto): Promise<Artist> {
     const artist = new Artist();
     artist.name = createArtistDto.name;
     artist.genre = createArtistDto.genre;
     artist.country = createArtistDto.country;
-
     return this.artistsRepository.save(artist);
   }
 
