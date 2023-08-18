@@ -15,6 +15,7 @@ export class PlaylistsService {
     const playlist = new Playlist();
     playlist.name = createPlaylistDto.name;
     playlist.artist = createPlaylistDto.artist;
+    playlist.songs = createPlaylistDto.songs;
     return this.playlistsRepository.save(playlist);
   }
 
