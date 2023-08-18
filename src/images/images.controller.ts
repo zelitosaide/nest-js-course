@@ -24,6 +24,7 @@ export class ImagesController {
   @Post("upload")
   @UseInterceptors(FileInterceptor("image"))
   uploadFile(
+    @Body() createImageDto: CreateImageDto,
     @UploadedFile(
       new ParseFilePipe({
         validators: [
@@ -34,7 +35,10 @@ export class ImagesController {
     )
     image: Express.Multer.File,
   ) {
-    console.log(image);
+    return {
+      createImageDto,
+      image: image.buffer.toString(),
+    };
   }
 
   @Post()
