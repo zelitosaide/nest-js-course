@@ -1,11 +1,17 @@
 import { Injectable } from "@nestjs/common";
 import { CreateLinkDto } from "./dto/create-link.dto";
 import { UpdateLinkDto } from "./dto/update-link.dto";
+import { Model } from "mongoose";
+import { InjectModel } from "@nestjs/mongoose";
+import { Link } from "./schemas/link.schema";
 
 @Injectable()
 export class LinksService {
-  create(createLinkDto: CreateLinkDto) {
-    return "This action adds a new link";
+  constructor(@InjectModel(Link.name) private linkModel: Model<Link>) {}
+
+  async create(createLinkDto: CreateLinkDto): Promise<Link> {
+    const createdLink = new this.linkModel(createLinkDto);
+    return createdLink.save();
   }
 
   findAll() {
