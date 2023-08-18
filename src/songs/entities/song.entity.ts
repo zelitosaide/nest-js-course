@@ -18,4 +18,3 @@ export class Song {
   @ManyToOne(() => Album, (album) => album.songs)
   album: Album;
 }
-

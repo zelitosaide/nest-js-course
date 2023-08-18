@@ -11,7 +11,7 @@ import { PlaylistSongsService } from "./playlist_songs/playlist_songs.service";
 // import { TypeOrmModule } from "@nestjs/typeorm";
 // import { UsersModule } from "./users/users.module";
 // import { SongsModule } from "./songs/songs.module";
-import { LinksModule } from './links/links.module';
+import { LinksModule } from "./links/links.module";
 import { MongooseModule } from "@nestjs/mongoose";
 
 @Module({
@@ -31,19 +31,17 @@ import { MongooseModule } from "@nestjs/mongoose";
     // UsersModule,
     // SongsModule,
     LinksModule,
-    MongooseModule.forRoot('mongodb://localhost/nest')
+    MongooseModule.forRoot("mongodb://localhost/nest"),
   ],
   controllers: [
-    AppController, 
-    // SongsController, 
+    AppController,
+    // SongsController,
     // PlaylistSongsController
   ],
   providers: [
-    AppService, 
-    // SongsService, 
+    AppService,
+    // SongsService,
     // PlaylistSongsService
   ],
 })
 export class AppModule {}
-
-
