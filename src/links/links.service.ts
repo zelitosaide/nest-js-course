@@ -14,8 +14,8 @@ export class LinksService {
     return createdLink.save();
   }
 
-  findAll() {
-    return `This action returns all links`;
+  async findAll(): Promise<Link[]> {
+    return this.linkModel.find().exec();
   }
 
   findOne(id: number) {
