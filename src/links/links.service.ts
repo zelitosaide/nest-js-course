@@ -32,5 +32,3 @@ export class LinksService {
       .exec();
   }
 }
-
-
