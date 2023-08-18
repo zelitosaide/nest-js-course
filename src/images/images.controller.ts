@@ -21,25 +21,37 @@ import { FileInterceptor } from "@nestjs/platform-express";
 export class ImagesController {
   constructor(private readonly imagesService: ImagesService) {}
 
-  @Post("upload")
-  @UseInterceptors(FileInterceptor("image"))
+  @Post("upload-file")
+  @UseInterceptors(FileInterceptor("file"))
   uploadFile(
     @Body() createImageDto: CreateImageDto,
-    @UploadedFile(
-      new ParseFilePipe({
-        validators: [
-          new MaxFileSizeValidator({ maxSize: 100000000 }),
-          new FileTypeValidator({ fileType: "image/jpeg" }),
-        ],
-      }),
-    )
-    image: Express.Multer.File,
+    @UploadedFile() file: Express.Multer.File,
   ) {
     return {
-      createImageDto,
-      image: image.buffer.toString(),
+      body: createImageDto,
+      file: file.buffer.toString(),
     };
   }
+
+  // @Post("upload")
+  // @UseInterceptors(FileInterceptor("image"))
+  // uploadFile(
+  //   @Body() createImageDto: CreateImageDto,
+  //   @UploadedFile(
+  //     new ParseFilePipe({
+  //       validators: [
+  //         new MaxFileSizeValidator({ maxSize: 100000000 }),
+  //         new FileTypeValidator({ fileType: "image/jpeg" }),
+  //       ],
+  //     }),
+  //   )
+  //   image: Express.Multer.File,
+  // ) {
+  //   return {
+  //     createImageDto,
+  //     image: image.buffer.toString(),
+  //   };
+  // }
 
   @Post()
   create(@Body() createImageDto: CreateImageDto) {
