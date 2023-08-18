@@ -13,6 +13,7 @@ import { PlaylistSongsService } from "./playlist_songs/playlist_songs.service";
 // import { SongsModule } from "./songs/songs.module";
 import { LinksModule } from "./links/links.module";
 import { MongooseModule } from "@nestjs/mongoose";
+import { ImagesModule } from "./images/images.module";
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { MongooseModule } from "@nestjs/mongoose";
     // SongsModule,
     LinksModule,
     MongooseModule.forRoot("mongodb://localhost/nest"),
+    ImagesModule,
   ],
   controllers: [
     AppController,

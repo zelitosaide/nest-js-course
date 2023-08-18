@@ -4,7 +4,8 @@ import { HydratedDocument, now } from "mongoose";
 export type LinkDocument = HydratedDocument<Link>;
 
 @Schema({ timestamps: true })
-export class Link {@Prop()
+export class Link {
+  @Prop()
   title: string;
 
   @Prop()
