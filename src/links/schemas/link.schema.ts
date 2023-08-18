@@ -1,11 +1,10 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { HydratedDocument } from "mongoose";
+import { HydratedDocument, now } from "mongoose";
 
 export type LinkDocument = HydratedDocument<Link>;
 
-@Schema()
-export class Link {
-  @Prop()
+@Schema({ timestamps: true })
+export class Link {@Prop()
   title: string;
 
   @Prop()
