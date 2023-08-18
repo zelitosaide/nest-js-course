@@ -27,24 +27,11 @@ export class ImagesController {
   @UseInterceptors(FileInterceptor("file"))
   uploadFile(
     @Body() createImageDto: CreateImageDto,
-    @UploadedFile(
-      new ParseFilePipeBuilder()
-        .addFileTypeValidator({
-          fileType: "image/jpeg",
-        })
-        .addMaxSizeValidator({
-          maxSize: 1000
-        })
-        .build({
-          fileIsRequired: false,
-          errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY
-        }),
-    )
-    file?: Express.Multer.File,
+    @UploadedFile() file: Express.Multer.File,
   ) {
     return {
       body: createImageDto,
-      file: file?.buffer.toString(),
+      file: file.buffer.toString(),
     };
   }
 
@@ -52,8 +39,26 @@ export class ImagesController {
   @UseInterceptors(FileInterceptor("file"))
   uploadFileAndPassValidation(
     @Body() createImageDto: CreateImageDto,
-    @UploadedFile() file: Express.Multer.File,
-  ) {}
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({
+          fileType: "image/jpeg",
+        })
+        .addMaxSizeValidator({
+          maxSize: 1000,
+        })
+        .build({
+          fileIsRequired: false,
+          errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY,
+        }),
+    )
+    file?: Express.Multer.File,
+  ) {
+    return {
+      body: createImageDto,
+      file: file?.buffer.toString(),
+    }
+  }
 
   // @Post("upload")
   // @UseInterceptors(FileInterceptor("image"))
