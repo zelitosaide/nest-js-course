@@ -77,25 +77,25 @@ export class ImagesController {
     };
   }
 
-  // @Post("upload")
-  // @UseInterceptors(FileInterceptor("image"))
-  // uploadFile(
-  //   @Body() createImageDto: CreateImageDto,
-  //   @UploadedFile(
-  //     new ParseFilePipe({
-  //       validators: [
-  //         new MaxFileSizeValidator({ maxSize: 100000000 }),
-  //         new FileTypeValidator({ fileType: "image/jpeg" }),
-  //       ],
-  //     }),
-  //   )
-  //   image: Express.Multer.File,
-  // ) {
-  //   return {
-  //     createImageDto,
-  //     image: image.buffer.toString(),
-  //   };
-  // }
+  @Post("upload-file-using-validators")
+  @UseInterceptors(FileInterceptor("file"))
+  uploadFileAndValidateUsingValidators(
+    @Body() createImageDto: CreateImageDto,
+    @UploadedFile(
+      new ParseFilePipe({
+        validators: [
+          new MaxFileSizeValidator({ maxSize: 100000000 }),
+          new FileTypeValidator({ fileType: "image/jpeg" }),
+        ],
+      }),
+    )
+    file: Express.Multer.File,
+  ) {
+    return {
+      body: createImageDto,
+      file: file.buffer.toString(),
+    };
+  }
 
   @Post()
   create(@Body() createImageDto: CreateImageDto) {
