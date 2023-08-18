@@ -57,7 +57,24 @@ export class ImagesController {
     return {
       body: createImageDto,
       file: file?.buffer.toString(),
-    }
+    };
+  }
+
+  @Post("upload-file-fail-validation")
+  @UseInterceptors(FileInterceptor("file"))
+  uploadFileAndFailValidation(
+    @Body() createImageDto: CreateImageDto,
+    @UploadedFile(
+      new ParseFilePipeBuilder()
+        .addFileTypeValidator({ fileType: "jpg" })
+        .build(),
+    )
+    file: Express.Multer.File,
+  ) {
+    return {
+      body: createImageDto,
+      file: file.buffer.toString(),
+    };
   }
 
   // @Post("upload")
