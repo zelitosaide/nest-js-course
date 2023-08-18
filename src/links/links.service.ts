@@ -22,14 +22,14 @@ export class LinksService {
     return this.linkModel.findOne({ _id: id }).exec();
   }
 
-  update(id: number, updateLinkDto: UpdateLinkDto) {
-    return `This action updates a #${id} link`;
-  }
-
   async remove(id: string) {
     const deletedCat = await this.linkModel
       .findByIdAndRemove({ _id: id })
       .exec();
     return deletedCat;
+  }
+
+  update(id: number, updateLinkDto: UpdateLinkDto) {
+    return `This action updates a #${id} link`;
   }
 }
