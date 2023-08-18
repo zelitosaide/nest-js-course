@@ -23,13 +23,16 @@ export class LinksService {
   }
 
   async remove(id: string) {
-    const deletedCat = await this.linkModel
+    const deletedLink = await this.linkModel
       .findByIdAndRemove({ _id: id })
       .exec();
-    return deletedCat;
+    return deletedLink;
   }
 
-  update(id: number, updateLinkDto: UpdateLinkDto) {
-    return `This action updates a #${id} link`;
+  async update(id: number, updateLinkDto: UpdateLinkDto) {
+    const updatedLink = await this.linkModel
+      .findByIdAndUpdate({ _id: id }, updateLinkDto, { new: true })
+      .exec();
+    return updatedLink;
   }
 }
