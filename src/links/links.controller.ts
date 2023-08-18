@@ -10,24 +10,25 @@ import {
 import { LinksService } from "./links.service";
 import { CreateLinkDto } from "./dto/create-link.dto";
 import { UpdateLinkDto } from "./dto/update-link.dto";
+import { Link } from "./schemas/link.schema";
 
 @Controller("links")
 export class LinksController {
   constructor(private readonly linksService: LinksService) {}
 
   @Post()
-  create(@Body() createLinkDto: CreateLinkDto) {
+  async create(@Body() createLinkDto: CreateLinkDto) {
     return this.linksService.create(createLinkDto);
   }
 
   @Get()
-  findAll() {
+  async findAll(): Promise<Link[]> {
     return this.linksService.findAll();
   }
 
   @Get(":id")
-  findOne(@Param("id") id: string) {
-    return this.linksService.findOne(+id);
+  async findOne(@Param("id") id: string): Promise<Link> {
+    return this.linksService.findOne(id);
   }
 
   @Patch(":id")
