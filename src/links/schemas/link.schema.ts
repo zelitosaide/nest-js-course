@@ -1,4 +1,7 @@
-import { Prop, Schema } from "@nestjs/mongoose";
+import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { HydratedDocument } from "mongoose";
+
+export type LinkDocument = HydratedDocument<Link>;
 
 @Schema()
 export class Link {
@@ -11,3 +14,5 @@ export class Link {
   @Prop()
   segment: string;
 }
+
+export const LinkSchema = SchemaFactory.createForClass(Link);
