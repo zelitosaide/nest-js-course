@@ -43,7 +43,7 @@ export class ImagesController {
   ) {
     return {
       body: createImageDto,
-      file
+      file,
     };
   }
 
