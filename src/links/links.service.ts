@@ -26,7 +26,10 @@ export class LinksService {
     return `This action updates a #${id} link`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} link`;
+  async remove(id: string) {
+    const deletedCat = await this.linkModel
+      .findByIdAndRemove({ _id: id })
+      .exec();
+    return deletedCat;
   }
 }
