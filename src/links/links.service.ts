@@ -29,7 +29,7 @@ export class LinksService {
     return deletedLink;
   }
 
-  async update(id: number, updateLinkDto: UpdateLinkDto) {
+  async update(id: string, updateLinkDto: UpdateLinkDto) {
     const updatedLink = await this.linkModel
       .findByIdAndUpdate({ _id: id }, updateLinkDto, { new: true })
       .exec();

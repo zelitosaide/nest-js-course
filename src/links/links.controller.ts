@@ -32,8 +32,8 @@ export class LinksController {
   }
 
   @Patch(":id")
-  update(@Param("id") id: string, @Body() updateLinkDto: UpdateLinkDto) {
-    return this.linksService.update(+id, updateLinkDto);
+  async update(@Param("id") id: string, @Body() updateLinkDto: UpdateLinkDto) {
+    return this.linksService.update(id, updateLinkDto);
   }
 
   @Delete(":id")
