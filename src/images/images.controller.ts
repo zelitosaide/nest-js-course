@@ -77,7 +77,7 @@ export class ImagesController {
     };
   }
 
-  @Post("upload-file-using-validators")
+  @Post("upload-file-and-validate-using-validators")
   @UseInterceptors(FileInterceptor("file"))
   uploadFileAndValidateUsingValidators(
     @Body() createImageDto: CreateImageDto,
