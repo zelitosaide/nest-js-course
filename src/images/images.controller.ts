@@ -18,20 +18,32 @@ import { ImagesService } from "./images.service";
 import { CreateImageDto } from "./dto/create-image.dto";
 import { UpdateImageDto } from "./dto/update-image.dto";
 import { FileInterceptor } from "@nestjs/platform-express";
+import { diskStorage } from "multer";
 
 @Controller("images")
 export class ImagesController {
   constructor(private readonly imagesService: ImagesService) {}
 
   @Post("upload-file")
-  @UseInterceptors(FileInterceptor("file"))
+  @UseInterceptors(
+    FileInterceptor("file", {
+      storage: diskStorage({
+        destination: "upload",
+        filename(req, file, callback) {
+          const uniquePreffix =
+            Date.now() + "-" + Math.round(Math.random() * 1e9);
+          callback(null, uniquePreffix + "-" + file.originalname);
+        },
+      }),
+    }),
+  )
   uploadFile(
     @Body() createImageDto: CreateImageDto,
     @UploadedFile() file: Express.Multer.File,
   ) {
     return {
       body: createImageDto,
-      file: file.buffer.toString(),
+      // file: file.buffer.toString(),
     };
   }
 
