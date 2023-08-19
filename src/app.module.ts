@@ -14,6 +14,8 @@ import { PlaylistSongsService } from "./playlist_songs/playlist_songs.service";
 import { LinksModule } from "./links/links.module";
 import { MongooseModule } from "@nestjs/mongoose";
 import { ImagesModule } from "./images/images.module";
+import { ServeStaticModule } from "@nestjs/serve-static";
+import { join } from "path";
 
 @Module({
   imports: [
@@ -34,6 +36,10 @@ import { ImagesModule } from "./images/images.module";
     LinksModule,
     MongooseModule.forRoot("mongodb://localhost/nest"),
     ImagesModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, "..", "uploads"),
+      serveRoot: "/uploads"
+    }),
   ],
   controllers: [
     AppController,

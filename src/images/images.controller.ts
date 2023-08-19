@@ -28,7 +28,7 @@ export class ImagesController {
   @UseInterceptors(
     FileInterceptor("file", {
       storage: diskStorage({
-        destination: "upload",
+        destination: "uploads",
         filename(req, file, callback) {
           const uniquePreffix =
             Date.now() + "-" + Math.round(Math.random() * 1e9);
