@@ -13,7 +13,7 @@ export class CoffeesController {
   }
 
   @Post()
-  create(@Body("firstName") body) {
+  create(@Body() body) {
     return body;
   }
 }
