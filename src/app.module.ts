@@ -17,6 +17,7 @@ import { ImagesModule } from "./images/images.module";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { join } from "path";
 import { CoffeesController } from "./coffees/coffees.controller";
+import { CoffeesService } from './coffees/coffees.service';
 
 @Module({
   imports: [
@@ -50,6 +51,7 @@ import { CoffeesController } from "./coffees/coffees.controller";
   ],
   providers: [
     AppService,
+    CoffeesService,
     // SongsService,
     // PlaylistSongsService
   ],
