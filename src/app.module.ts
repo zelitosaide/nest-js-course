@@ -16,6 +16,7 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { ImagesModule } from "./images/images.module";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { join } from "path";
+import { CoffeesController } from './coffees/coffees.controller';
 
 @Module({
   imports: [
@@ -43,6 +44,7 @@ import { join } from "path";
   ],
   controllers: [
     AppController,
+    CoffeesController,
     // SongsController,
     // PlaylistSongsController
   ],
