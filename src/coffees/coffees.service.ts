@@ -30,4 +30,11 @@ export class CoffeesService {
       // update the existing
     }
   }
+
+  remove(id: string) {
+    const coffeeIndex = this.coffees.findIndex(item => item.id === +id);
+    if (coffeeIndex >= 0) {
+      this.coffees.splice(coffeeIndex, 1);
+    }
+  }
 }
