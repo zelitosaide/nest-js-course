@@ -9,6 +9,9 @@ export class AppService {
 
     return {
       date: `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`,
+      hours: date.getHours(),
+      minutes: date.getMinutes(),
+      seconds: date.getSeconds(),
     };
   }
 }
