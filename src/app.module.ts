@@ -16,7 +16,7 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { ImagesModule } from "./images/images.module";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { join } from "path";
-import { CoffeesController } from './coffees/coffees.controller';
+import { CoffeesController } from "./coffees/coffees.controller";
 
 @Module({
   imports: [
@@ -39,7 +39,7 @@ import { CoffeesController } from './coffees/coffees.controller';
     ImagesModule,
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, "..", "uploads"),
-      serveRoot: "/uploads"
+      serveRoot: "/uploads",
     }),
   ],
   controllers: [
