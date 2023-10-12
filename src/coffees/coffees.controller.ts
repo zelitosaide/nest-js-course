@@ -14,7 +14,6 @@ export class CoffeesController {
 
   @Post()
   create(@Body() body) {
-    console.log(body);
     return body;
   }
 }
