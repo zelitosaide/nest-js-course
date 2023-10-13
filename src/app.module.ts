@@ -16,8 +16,6 @@ import { MongooseModule } from "@nestjs/mongoose";
 import { ImagesModule } from "./images/images.module";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { join } from "path";
-import { CoffeesController } from "./coffees/coffees.controller";
-import { CoffeesService } from "./coffees/coffees.service";
 import { CoffeesModule } from "./coffees/coffees.module";
 
 @Module({
@@ -47,13 +45,11 @@ import { CoffeesModule } from "./coffees/coffees.module";
   ],
   controllers: [
     AppController,
-    CoffeesController,
     // SongsController,
     // PlaylistSongsController
   ],
   providers: [
     AppService,
-    CoffeesService,
     // SongsService,
     // PlaylistSongsService
   ],
