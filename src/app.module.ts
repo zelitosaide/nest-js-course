@@ -18,7 +18,7 @@ import { ServeStaticModule } from "@nestjs/serve-static";
 import { join } from "path";
 import { CoffeesController } from "./coffees/coffees.controller";
 import { CoffeesService } from "./coffees/coffees.service";
-import { CoffeesModule } from './coffees/coffees.module';
+import { CoffeesModule } from "./coffees/coffees.module";
 
 @Module({
   imports: [
