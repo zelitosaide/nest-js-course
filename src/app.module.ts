@@ -18,6 +18,7 @@ import { ServeStaticModule } from "@nestjs/serve-static";
 import { join } from "path";
 import { CoffeesController } from "./coffees/coffees.controller";
 import { CoffeesService } from "./coffees/coffees.service";
+import { CoffeesModule } from './coffees/coffees.module';
 
 @Module({
   imports: [
@@ -42,6 +43,7 @@ import { CoffeesService } from "./coffees/coffees.service";
       rootPath: join(__dirname, "..", "uploads"),
       serveRoot: "/uploads",
     }),
+    CoffeesModule,
   ],
   controllers: [
     AppController,
