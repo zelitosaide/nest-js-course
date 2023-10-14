@@ -30,9 +30,9 @@ export class CoffeesController {
   }
 
   @Get(":id")
-  findOne(@Param("id") id: string) {
+  findOne(@Param("id") id: number) {
     // return `This action returns #${id} coffee`;
-    return this.coffeesService.findOne(id);
+    return this.coffeesService.findOne("" + id);
   }
 
   @Post()
