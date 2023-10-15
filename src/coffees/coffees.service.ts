@@ -88,4 +88,11 @@ export class CoffeesService {
     }
     return this.flavorRepository.create({ name });
   }
+
+  async recommendCoffee(coffee: Coffee) {
+    const queryRunner = this.dataSource.createQueryRunner();
+
+    await queryRunner.connect();
+    await queryRunner.startTransaction();
+  }
 }
