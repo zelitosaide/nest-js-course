@@ -22,7 +22,7 @@ export class CoffeesService {
   }
 
   async findOne(id: string) {
-    const coffee = await this.coffeeRepository.findOne({ where: { id: +id }});
+    const coffee = await this.coffeeRepository.findOne({ where: { id: +id } });
     if (!coffee) {
       // throw new HttpException(`Coffee #${id} not found`, HttpStatus.NOT_FOUND);
       throw new NotFoundException(`Coffee #${id} not found`);
@@ -38,7 +38,7 @@ export class CoffeesService {
   async update(id: string, updateCoffeeDto: UpdateCoffeeDto) {
     const coffee = await this.coffeeRepository.preload({
       id: +id,
-      ...updateCoffeeDto
+      ...updateCoffeeDto,
     });
     if (!coffee) {
       throw new NotFoundException(`Coffee #${id} not found`);
