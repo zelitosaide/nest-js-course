@@ -28,7 +28,7 @@ export class CoffeesService {
         flavors: true,
       },
       take: limit,
-      skip: offset
+      skip: offset,
     });
   }
 
