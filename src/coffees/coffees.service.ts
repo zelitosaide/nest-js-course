@@ -11,6 +11,7 @@ import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 import { Flavor } from "./entities/flavor.entity";
 import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
+import { Event } from "src/events/entities/event.entity";
 
 @Injectable()
 export class CoffeesService {
@@ -96,6 +97,12 @@ export class CoffeesService {
     await queryRunner.startTransaction();
 
     try {
+      coffee.recommendations++;
+      const recommendEvent = new Event();
+      recommendEvent.name = "recommend_coffee";
+      recommendEvent.type = "coffee";
+      recommendEvent.payload = { coffeeId: coffee.id };
+      
       await queryRunner.commitTransaction();
     } catch (error) {
       await queryRunner.rollbackTransaction();
