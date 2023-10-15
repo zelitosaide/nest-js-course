@@ -15,6 +15,7 @@ import { CoffeesService } from "./coffees.service";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
+import { Coffee } from "./entities/coffee.entity";
 
 @Controller("coffees")
 export class CoffeesController {
@@ -42,6 +43,11 @@ export class CoffeesController {
     // return body;
     console.log(createCoffeeDto instanceof CreateCoffeeDto);
     return this.coffeesService.create(createCoffeeDto);
+  }
+
+  @Patch("recommend")
+  recommendCoffee(@Body() coffee: Coffee) {
+    return this.coffeesService.recommendCoffee(coffee);
   }
 
   @Patch(":id")
