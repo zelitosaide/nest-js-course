@@ -31,6 +31,18 @@ export class CoffeesController {
     return this.coffeesService.findAll(paginationQueryDto);
   }
 
+  @Post("recommend")
+  recommendCoffee(@Body() body) {
+    const coffee = new Coffee();
+    coffee.id = body.id;
+    coffee.name = body.name;
+    coffee.brand = body.brand;
+    coffee.flavors = body.flavors;
+    coffee.recommendations = body.recommendations;
+    
+    return this.coffeesService.recommendCoffee(coffee);
+  }
+
   @Get(":id")
   findOne(@Param("id") id: string) {
     // return `This action returns #${id} coffee`;
@@ -43,11 +55,6 @@ export class CoffeesController {
     // return body;
     console.log(createCoffeeDto instanceof CreateCoffeeDto);
     return this.coffeesService.create(createCoffeeDto);
-  }
-
-  @Patch("recommend")
-  recommendCoffee(@Body() coffee: Coffee) {
-    return this.coffeesService.recommendCoffee(coffee);
   }
 
   @Patch(":id")

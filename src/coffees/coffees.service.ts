@@ -108,6 +108,7 @@ export class CoffeesService {
 
       await queryRunner.commitTransaction();
     } catch (error) {
+      console.log(error);
       await queryRunner.rollbackTransaction();
     } finally {
       await queryRunner.release();
