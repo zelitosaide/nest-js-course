@@ -9,12 +9,15 @@ import { Repository } from "typeorm";
 import { InjectRepository } from "@nestjs/typeorm";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
+import { Flavor } from "./entities/flavor.entity";
 
 @Injectable()
 export class CoffeesService {
   constructor(
     @InjectRepository(Coffee)
     private readonly coffeeRepository: Repository<Coffee>,
+    @InjectRepository(Flavor)
+    private readonly flavorRepository: Repository<Flavor>,
   ) {}
 
   findAll() {
@@ -56,5 +59,15 @@ export class CoffeesService {
   async remove(id: string) {
     const coffee = await this.findOne(id);
     return this.coffeeRepository.remove(coffee);
+  }
+
+  private async preloadFlavorByName(name: string): Promise<Flavor> {
+    const existingFlavor = await this.flavorRepository.findOne({
+      where: { name },
+    });
+    if (existingFlavor) {
+      return existingFlavor;
+    }
+    return this.flavorRepository.create({ name });
   }
 }
