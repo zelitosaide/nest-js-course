@@ -47,6 +47,7 @@ import { ConfigModule } from "@nestjs/config";
     // }),
     ConfigModule.forRoot({
       // envFilePath: [".environment", ".env"]
+      // ignoreEnvFile: true
     }),
     CoffeesModule,
     TypeOrmModule.forRoot({
