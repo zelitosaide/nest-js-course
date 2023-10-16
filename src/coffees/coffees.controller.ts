@@ -15,7 +15,6 @@ import { CoffeesService } from "./coffees.service";
 import { CreateCoffeeDto } from "./dto/create-coffee.dto";
 import { UpdateCoffeeDto } from "./dto/update-coffee.dto";
 import { PaginationQueryDto } from "src/common/dto/pagination-query.dto";
-import { Coffee } from "./entities/coffee.entity";
 
 @Controller("coffees")
 export class CoffeesController {
@@ -31,41 +30,29 @@ export class CoffeesController {
     return this.coffeesService.findAll(paginationQueryDto);
   }
 
-  @Post("recommend")
-  recommendCoffee(@Body() body) {
-    const coffee = new Coffee();
-    coffee.id = body.id;
-    coffee.name = body.name;
-    coffee.brand = body.brand;
-    coffee.flavors = body.flavors;
-    coffee.recommendations = body.recommendations;
-    
-    return this.coffeesService.recommendCoffee(coffee);
-  }
-
   @Get(":id")
   findOne(@Param("id") id: string) {
-    // return `This action returns #${id} coffee`;
     return this.coffeesService.findOne(id);
   }
 
   @Post()
   // @HttpCode(HttpStatus.GONE)
   create(@Body() createCoffeeDto: CreateCoffeeDto) {
-    // return body;
-    console.log(createCoffeeDto instanceof CreateCoffeeDto);
     return this.coffeesService.create(createCoffeeDto);
   }
 
   @Patch(":id")
   update(@Param("id") id: string, @Body() updateCoffeeDto: UpdateCoffeeDto) {
-    // return { id, body };
     return this.coffeesService.update(id, updateCoffeeDto);
+  }
+
+  @Post(":id/recommend")
+  recommendCoffee(@Param("id") id: string) {
+    return this.coffeesService.recommendCoffee(id);
   }
 
   @Delete(":id")
   remove(@Param("id") id: string) {
-    // return `This action removes #${id} coffee`;
     return this.coffeesService.remove(id);
   }
 }

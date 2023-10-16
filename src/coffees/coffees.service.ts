@@ -20,7 +20,7 @@ export class CoffeesService {
     private readonly coffeeRepository: Repository<Coffee>,
     @InjectRepository(Flavor)
     private readonly flavorRepository: Repository<Flavor>,
-    private readonly dataSource: DataSource
+    private readonly dataSource: DataSource,
   ) {}
 
   findAll(paginationQueryDto: PaginationQueryDto) {
@@ -90,25 +90,27 @@ export class CoffeesService {
     return this.flavorRepository.create({ name });
   }
 
-  async recommendCoffee(coffee: Coffee) {
+  // async recommendCoffee(coffee: Coffee) {
+  async recommendCoffee(id: string) {
     const queryRunner = this.dataSource.createQueryRunner();
 
     await queryRunner.connect();
     await queryRunner.startTransaction();
 
     try {
+      const coffee = await this.findOne(id);
+
       coffee.recommendations++;
       const recommendEvent = new Event();
       recommendEvent.name = "recommend_coffee";
       recommendEvent.type = "coffee";
       recommendEvent.payload = { coffeeId: coffee.id };
 
-      await queryRunner.manager.save(coffee); 
+      await queryRunner.manager.save(coffee);
       await queryRunner.manager.save(recommendEvent);
 
       await queryRunner.commitTransaction();
     } catch (error) {
-      console.log(error);
       await queryRunner.rollbackTransaction();
     } finally {
       await queryRunner.release();
