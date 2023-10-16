@@ -48,6 +48,7 @@ class ProductionConfigService {}
       useFactory: async (connection: Connection): Promise<string[]> => {
         // const coffeeBrands = await connection.query('SELECT * ...');
         const coffeeBrands = await Promise.resolve(["buddy brew", "nescafe"]);
+        console.log("[!] async factory");
         return coffeeBrands;
       },
       inject: [Connection],
