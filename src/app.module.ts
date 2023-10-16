@@ -50,10 +50,10 @@ import appConfig from "./config/app.config";
     ConfigModule.forRoot({
       // envFilePath: [".environment", ".env"],
       // ignoreEnvFile: true,
-      // validationSchema: Joi.object({
-      //   DATABASE_HOST: Joi.required(),
-      //   DATABASE_PORT: Joi.number().default(5433),
-      // }),
+      validationSchema: Joi.object({
+        DATABASE_HOST: Joi.required(),
+        DATABASE_PORT: Joi.number().default(5433),
+      }),
       load: [appConfig]
     }),
     CoffeesModule,
