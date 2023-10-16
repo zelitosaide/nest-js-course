@@ -21,6 +21,7 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { CoffeeRatingModule } from "./coffee-rating/coffee-rating.module";
 import { DatabaseModule } from "./database/database.module";
 import { ConfigModule } from "@nestjs/config";
+import * as Joi from "@hapi/joi";
 
 @Module({
   imports: [
@@ -46,8 +47,12 @@ import { ConfigModule } from "@nestjs/config";
     //   serveRoot: "/uploads",
     // }),
     ConfigModule.forRoot({
-      // envFilePath: [".environment", ".env"]
-      // ignoreEnvFile: true
+      // envFilePath: [".environment", ".env"],
+      // ignoreEnvFile: true,
+      validationSchema: Joi.object({
+        DATABASE_HOST: Joi.required(),
+        DATABASE_PORT: Joi.number().default(5433)
+      })
     }),
     CoffeesModule,
     TypeOrmModule.forRoot({
