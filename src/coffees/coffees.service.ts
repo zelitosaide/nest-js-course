@@ -37,6 +37,9 @@ export class CoffeesService {
       "localhost",
     );
     console.log(databaseHost);
+    
+    const coffeesConfig = this.configService.get("coffees");
+    console.log(coffeesConfig);
   }
 
   findAll(paginationQueryDto: PaginationQueryDto) {
