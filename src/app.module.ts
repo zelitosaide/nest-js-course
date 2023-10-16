@@ -51,7 +51,7 @@ import * as Joi from "@hapi/joi";
       // ignoreEnvFile: true,
       validationSchema: Joi.object({
         DATABASE_HOST: Joi.required(),
-        DATABASE_PORT: Joi.number().default(5433)
+        DATABASE_PORT: Joi.number().default(5433),
       })
     }),
     CoffeesModule,
