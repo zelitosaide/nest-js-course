@@ -54,7 +54,7 @@ import appConfig from "./config/app.config";
         DATABASE_HOST: Joi.required(),
         DATABASE_PORT: Joi.number().default(5433),
       }),
-      load: [appConfig]
+      load: [appConfig],
     }),
     CoffeesModule,
     TypeOrmModule.forRoot({
