@@ -31,10 +31,12 @@ export class CoffeesService {
     private readonly configService: ConfigService,
   ) {
     console.log(coffeeBrands);
-    const databaseHost = this.configService.get<string>("DATABASE_HOST");
+    const databaseHost = this.configService.get<string>(
+      "DATABASE_HOST",
+      "localhost",
+    );
     console.log(databaseHost);
   }
-
 
   findAll(paginationQueryDto: PaginationQueryDto) {
     const { limit, offset } = paginationQueryDto;
