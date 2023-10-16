@@ -45,7 +45,9 @@ import { ConfigModule } from "@nestjs/config";
     //   rootPath: join(__dirname, "..", "uploads"),
     //   serveRoot: "/uploads",
     // }),
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      // envFilePath: [".environment", ".env"]
+    }),
     CoffeesModule,
     TypeOrmModule.forRoot({
       type: "postgres",
