@@ -20,6 +20,7 @@ import { CoffeesModule } from "./coffees/coffees.module";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { CoffeeRatingModule } from "./coffee-rating/coffee-rating.module";
 import { DatabaseModule } from "./database/database.module";
+import { ConfigModule } from "@nestjs/config";
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { DatabaseModule } from "./database/database.module";
     //   rootPath: join(__dirname, "..", "uploads"),
     //   serveRoot: "/uploads",
     // }),
+    ConfigModule.forRoot(),
     CoffeesModule,
     TypeOrmModule.forRoot({
       type: "postgres", // type of our database
